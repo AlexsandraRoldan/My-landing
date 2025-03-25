@@ -22,11 +22,22 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-cover bg-center text-white" style={{ backgroundImage: "url('/imagenes/fondo.jpg')" }}>
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-      
+    <div className="relative min-h-screen">
+
+      {/* Imagen de fondo con Next.js */}
+      <Image 
+        src="/imagenes/portada.jpg" 
+        alt="Fondo" 
+        layout="fill" 
+        objectFit="cover" 
+        className="absolute inset-0 -z-10"
+      />
+
+      {/* Capa de oscurecimiento y blur */}
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-lg"></div>
+
       {/* Navbar */}
-      <nav className="relative z-10 flex justify-between items-center p-6 max-w-6xl mx-auto">
+      <nav className="relative z-10 flex justify-between items-center p-6 max-w-6xl mx-auto text-white">
         <h2 className="text-2xl font-bold">Operation True Love</h2>
         <div className="space-x-6">
           <a href="#features" className="hover:text-yellow-400">Características</a>
@@ -36,7 +47,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Contenido principal */}
-      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen max-w-6xl mx-auto p-6">
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen max-w-6xl mx-auto p-6 text-white">
         {/* Texto */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-5xl font-bold leading-tight">Encuentra el amor verdadero</h1>
@@ -47,7 +58,7 @@ export default function LandingPage() {
           </div>
         </div>
         
-        {/* Imagen */}
+        {/* Imagen con animación */}
         <motion.div
           key={books[currentBook].id}
           initial={{ opacity: 0, x: 50 }}
