@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShoppingCart, Info, CheckCircle } from "lucide-react";
+import { useInView } from "react-intersection-observer";
 
 const books = [
   { id: 1, image: "/imagenes/tomo_1.png", title: "Operation True Love - Tomo 1" },
@@ -96,27 +97,33 @@ export default function LandingPage() {
       </div>
 
       <section id="features" className="bg-gradient-to-r from-[#BF5065] to-[#F2EBEC] text-gray-800 py-20 px-6 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center relative">
-          <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Características del Libro</h2>
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="flex flex-col items-center text-center p-8 bg-white/60 border border-[#F266C1] rounded-lg shadow-md backdrop-blur-lg">
-              <CheckCircle className="text-[#F22987] w-14 h-14 mb-4" />
-              <h3 className="text-2xl font-semibold text-[#BF5065]">Historia Emocionante</h3>
-              <p className="mt-3 text-gray-600">Sumérgete en una historia llena de romance, drama y giros inesperados.</p>
-            </div>
-            <div className="flex flex-col items-center text-center p-8 bg-white/60 border border-[#F266C1] rounded-lg shadow-md backdrop-blur-lg">
-              <CheckCircle className="text-[#F22987] w-14 h-14 mb-4" />
-              <h3 className="text-2xl font-semibold text-[#BF5065]">Ilustraciones de Alta Calidad</h3>
-              <p className="mt-3 text-gray-600">Disfruta de un arte impresionante con detalles vibrantes en cada página.</p>
-            </div>
-            <div className="flex flex-col items-center text-center p-8 bg-white/60 border border-[#F266C1] rounded-lg shadow-md backdrop-blur-lg">
-              <CheckCircle className="text-[#F22987] w-14 h-14 mb-4" />
-              <h3 className="text-2xl font-semibold text-[#BF5065]">Disponible en Digital y Físico</h3>
-              <p className="mt-3 text-gray-600">Elige cómo quieres disfrutarlo: en versión digital o impresa.</p>
+          <div className="max-w-5xl mx-auto text-center relative">
+            <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Características del Libro</h2>
+            <div className="grid md:grid-cols-3 gap-10">
+              {["Historia Emocionante", "Ilustraciones de Alta Calidad", "Disponible en Digital y Físico"].map((feature, index) => {
+                const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+                return (
+                  <motion.div
+                    key={index}
+                    ref={ref}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    className="flex flex-col items-center text-center p-8 bg-white/60 border border-[#F266C1] rounded-lg shadow-md backdrop-blur-lg"
+                  >
+                    <CheckCircle className="text-[#F22987] w-14 h-14 mb-4" />
+                    <h3 className="text-2xl font-semibold text-[#BF5065]">{feature}</h3>
+                    <p className="mt-3 text-gray-600">
+                      {index === 0 ? "Sumérgete en una historia llena de romance, drama y giros inesperados." :
+                       index === 1 ? "Disfruta de un arte impresionante con detalles vibrantes en cada página." :
+                       "Elige cómo quieres disfrutarlo: en versión digital o impresa."}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 }
