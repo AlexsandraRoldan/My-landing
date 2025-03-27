@@ -7,10 +7,17 @@ import { motion } from "framer-motion";
 import { ShoppingCart, Info, CheckCircle } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
-const books = [
-  { id: 1, image: "/imagenes/tomo_1.png", title: "Operation True Love - Tomo 1" },
-  { id: 2, image: "/imagenes/tomo_2.png", title: "Operation True Love - Tomo 2" },
-  { id: 3, image: "/imagenes/tomo_3.png", title: "Operation True Love - Tomo 3" },
+interface Book {
+  id: number;
+  image: string;
+  title: string;
+  details: string;
+}
+
+const books: Book[] = [
+  { id: 1, image: "/imagenes/tomo_1.png", title: "Operation True Love - Tomo 1", details: "Primer volumen del exitoso manhwa, incluye ilustraciones exclusivas." },
+  { id: 2, image: "/imagenes/tomo_2.png", title: "Operation True Love - Tomo 2", details: "Segunda parte de la historia con más giros impactantes y arte mejorado." },
+  { id: 3, image: "/imagenes/tomo_3.png", title: "Operation True Love - Tomo 3", details: "Última entrega de la serie, con un desenlace emocionante y contenido extra." },
 ];
 
 export default function LandingPage() {
@@ -52,7 +59,6 @@ export default function LandingPage() {
             <p className="mt-4 text-lg">
               Los tomos digitales están disponibles ahora. Vive una historia única llena de emociones, secretos y giros inesperados.
             </p>
-
             <ul className="mt-4 space-y-2 text-lg">
               <li className="flex items-center gap-2">
                 <CheckCircle className="text-yellow-300 w-6 h-6" /> Ilustraciones de alta calidad.
@@ -64,9 +70,7 @@ export default function LandingPage() {
                 <CheckCircle className="text-yellow-300 w-6 h-6" /> Disponible en formato digital y físico.
               </li>
             </ul>
-
             <p className="mt-6 italic text-gray-200">⭐⭐⭐⭐⭐ “Una historia emocionante que no podrás dejar de leer.”</p>
-
             <div className="mt-6 flex gap-4">
               <Button className="bg-yellow-400 text-black text-lg py-3 px-6 rounded-lg flex items-center gap-2">
                 <ShoppingCart className="w-5 h-5" /> Comprar ahora
@@ -76,7 +80,6 @@ export default function LandingPage() {
               </Button>
             </div>
           </div>
-
           <motion.div
             key={books[currentBook].id}
             initial={{ opacity: 0, x: 50 }}
@@ -95,6 +98,56 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </div>
+      <section id="books" className="py-20 px-6 text-gray-800">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Detalles de los Libros</h2>
+        
+        {/* Carrusel de imágenes */}
+        <div className="flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto p-6">
+          <motion.div
+            key={books[currentBook].id}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 50 }}
+            transition={{ duration: 0.5 }}
+            className="md:w-1/2 flex justify-center"
+          >
+            <Image
+              src={books[currentBook].image}
+              alt={books[currentBook].title}
+              width={300}
+              height={450}
+              className="shadow-lg rounded-lg"
+            />
+          </motion.div>
+
+          {/* Detalles del libro */}
+          <div className="md:w-1/2 mt-6 md:mt-0 md:pl-10 text-center md:text-left">
+            <h2 className="text-3xl font-bold text-[#F22987]">{books[currentBook].title}</h2>
+            <p className="mt-4 text-lg text-gray-700">{books[currentBook].details}</p>
+          </div>
+        </div>
+
+        {/* Tarjetas de libros */}
+        <div className="grid md:grid-cols-3 gap-6 mt-12">
+          {books.map((book) => (
+            <motion.div 
+              key={book.id}
+              initial={{ opacity: 0, y: 50 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="p-6 bg-white border border-gray-300 rounded-lg shadow-md text-center"
+            >
+              <Image src={book.image} alt={book.title} width={150} height={200} className="mx-auto mb-4 rounded-lg" />
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{book.title}</h3>
+              <p className="text-gray-600 mb-4">{book.details}</p>
+              <Button className="bg-[#F22987] text-white hover:bg-[#D91A6E]">Ver más</Button>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section id="features" className="bg-gradient-to-r from-[#BF5065] to-[#F2EBEC] text-gray-800 py-20 px-6 relative overflow-hidden">
           <div className="max-w-5xl mx-auto text-center relative">
