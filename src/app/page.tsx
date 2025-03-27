@@ -14,10 +14,34 @@ interface Book {
   details: string;
 }
 
-const books: Book[] = [
-  { id: 1, image: "/imagenes/tomo_1.png", title: "Operation True Love - Tomo 1", details: "Primer volumen del exitoso manhwa, incluye ilustraciones exclusivas." },
-  { id: 2, image: "/imagenes/tomo_2.png", title: "Operation True Love - Tomo 2", details: "Segunda parte de la historia con más giros impactantes y arte mejorado." },
-  { id: 3, image: "/imagenes/tomo_3.png", title: "Operation True Love - Tomo 3", details: "Última entrega de la serie, con un desenlace emocionante y contenido extra." },
+const books = [
+  { 
+    id: 1, 
+    image: "/imagenes/tomo_1.png", 
+    title: "Operation True Love - Tomo 1", 
+    details: "Primer volumen del exitoso manhwa, incluye ilustraciones exclusivas.",
+    publication: "20 de septiembre, 2024",
+    specs: "320 páginas | 150×210×20mm",
+    isbn: "9788931477054"
+  },
+  { 
+    id: 2, 
+    image: "/imagenes/tomo_2.png", 
+    title: "Operation True Love - Tomo 2", 
+    details: "Segunda parte de la historia con más giros impactantes y arte mejorado.",
+    publication: "20 de septiembre, 2024",
+    specs: "320 páginas | 150×210×20mm",
+    isbn: "9788931477061"
+  },
+  { 
+    id: 3, 
+    image: "/imagenes/tomo_3.png", 
+    title: "Operation True Love - Tomo 3", 
+    details: "Última entrega de la serie, con un desenlace emocionante y contenido extra.",
+    publication: "20 de septiembre, 2024",
+    specs: "320 páginas | 150×210×20mm",
+    isbn: "9788931477078"
+  }
 ];
 
 export default function LandingPage() {
@@ -125,26 +149,10 @@ export default function LandingPage() {
           <div className="md:w-1/2 mt-6 md:mt-0 md:pl-10 text-center md:text-left">
             <h2 className="text-3xl font-bold text-[#F22987]">{books[currentBook].title}</h2>
             <p className="mt-4 text-lg text-gray-700">{books[currentBook].details}</p>
+            <p className="mt-2 text-gray-600"><strong>Publicación:</strong> {books[currentBook].publication}</p>
+            <p className="mt-1 text-gray-600"><strong>Detalles:</strong> {books[currentBook].specs}</p>
+            <p className="mt-1 text-gray-600"><strong>ISBN13:</strong> {books[currentBook].isbn}</p>
           </div>
-        </div>
-
-        {/* Tarjetas de libros */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          {books.map((book) => (
-            <motion.div 
-              key={book.id}
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="p-6 bg-white border border-gray-300 rounded-lg shadow-md text-center"
-            >
-              <Image src={book.image} alt={book.title} width={150} height={200} className="mx-auto mb-4 rounded-lg" />
-              <h3 className="text-xl font-bold text-gray-800 mb-2">{book.title}</h3>
-              <p className="text-gray-600 mb-4">{book.details}</p>
-              <Button className="bg-[#F22987] text-white hover:bg-[#D91A6E]">Ver más</Button>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>
