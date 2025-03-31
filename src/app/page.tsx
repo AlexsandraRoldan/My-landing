@@ -55,6 +55,7 @@ const tomos = [
   { id: 2, src: "/imagenes/tomo2_sin.png", alt: "Tomo 2" },
   { id: 3, src: "/imagenes/tomo3_sin.png", alt: "Tomo 3" },
 ];
+
 export default function LandingPage() {
   const [currentBook, setCurrentBook] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -66,20 +67,33 @@ export default function LandingPage() {
   });
 
   const nextBook = () => {
+    setIsPaused(true); // Pausa el carrusel
     setCurrentBook((prev) => (prev + 1) % books.length);
+  
+    setTimeout(() => {
+      setIsPaused(false); // Lo reanuda después de 5 segundos
+    }, 5000);
   };
-
+  
   const prevBook = () => {
+    setIsPaused(true); // Pausa el carrusel
     setCurrentBook((prev) => (prev - 1 + books.length) % books.length);
+  
+    setTimeout(() => {
+      setIsPaused(false); // Lo reanuda después de 5 segundos
+    }, 5000);
   };
-
   useEffect(() => {
+    setVisible(true);
+    if (isPaused) return;
+  
     const interval = setInterval(() => {
       setCurrentBook((prev) => (prev + 1) % books.length);
-    }, 3000);
-    setTimeout(() => setVisible(true), 300);
+    }, 7000); // Espera 7 segundos antes de cambiar
+  
     return () => clearInterval(interval);
-  }, []);
+  }, [currentBook, isPaused]);
+  
 
   return (
     <div>
@@ -109,7 +123,7 @@ export default function LandingPage() {
         {/* Contenido principal */}
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen max-w-6xl mx-auto p-6 text-white">
           {/* Sección de texto */}
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-1/2 text-center md:text-left md:ml-[-350px]">
             <h1 className="text-5xl font-bold leading-tight">Operación Verdadero Amor</h1>
             <h2 className="mt-2 text-2xl text-pink-300 font-semibold">Una historia que te hará suspirar</h2>
             <p className="mt-4 text-lg">
@@ -136,29 +150,30 @@ export default function LandingPage() {
               </button>
             </div>
           </div>
+          
+          {/* Sección de ilustraciones */}
           <div className="relative h-screen flex items-center justify-center">
-      <div className="relative w-[400px] h-[700px]">
-        <img
-          src="/imagenes/tomo1_sin.png"
-          alt="Tomo 1"
-          className={`absolute bottom-0 left-0 w-60 shadow-lg transition-transform duration-700 ease-out ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
-        />
-        <img
-          src="/imagenes/tomo2_sin.png"
-          alt="Tomo 2"
-          className={`absolute bottom-16 left-20 w-60 shadow-lg transition-transform duration-700 ease-out delay-300 ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
-        />
-        <img
-          src="/imagenes/tomo3_sin.png"
-          alt="Tomo 3"
-          className={`absolute bottom-32 left-40 w-60 shadow-lg transition-transform duration-700 ease-out delay-600 ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
-        />
-      </div>
-    </div>
+            <div className="relative left-50 w-[400px] h-[700px]">
+            <img
+                src="/imagenes/tomo1_sin.png"
+                alt="Tomo 1"
+                className={`absolute bottom-40 left-0 w-190 h-150 transition-transform duration-700 ease-out ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              />
+              <img
+                src="/imagenes/tomo2_sin.png"
+                alt="Tomo 2"
+                className={`absolute bottom-20 left-35 w-190 h-150 transition-transform duration-700 ease-out delay-300 ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              />
+              <img
+                src="/imagenes/tomo3_sin.png"
+                alt="Tomo 3"
+                className={`absolute bottom-0 left-70 w-190 h-150 transition-transform duration-700 ease-out delay-600 ${visible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-
+      
       <section id="books" className="py-20 px-6 text-gray-800 bg-gray-100">
         <motion.div 
           ref={ref} 
@@ -183,21 +198,22 @@ export default function LandingPage() {
             </button>
 
             <motion.div
-              key={books[currentBook].id}
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50 }}
-              transition={{ duration: 0.5 }}
-              className="md:w-2/3 flex justify-center"
-            >
-              <Image
-                src={books[currentBook].image}
-                alt={books[currentBook].title}
-                width={600}
-                height={800}
-                className="shadow-lg rounded-lg"
-              />
-            </motion.div>
+  key={books[currentBook].id}
+  initial={{ opacity: 0, x: -50 }}
+  animate={{ opacity: 1, x: 0 }}
+  exit={{ opacity: 0, x: 50 }}
+  transition={{ duration: 1.2 }} // Aumenta la duración a 1.2 segundos
+  className="md:w-2/3 flex justify-center"
+>
+  <Image
+    src={books[currentBook].image}
+    alt={books[currentBook].title}
+    width={600}
+    height={800}
+    className="shadow-lg rounded-lg"
+  />
+</motion.div>
+
 
             {/* Detalles del libro */}
             <div className="md:w-2/3 mt-6 md:mt-0 md:pl-10 text-center md:text-left">
