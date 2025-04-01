@@ -12,30 +12,31 @@ import { ChevronUp, ChevronDown } from "lucide-react";
 const faqs = [
   {
     id: 1,
-    question: "¿Qué hace especial a 'Operation True Love' en comparación con otras historias de romance?",
-    answer: "Esta historia se destaca por su narrativa profunda, ilustraciones detalladas y giros inesperados que mantienen a los lectores enganchados.",
+    question: "¿Qué hace especial la segunda temporada de 'Operation True Love'?",
+    answer: "La segunda temporada profundiza más en los personajes y presenta giros inesperados que mantendrán a los fans cautivados.",
   },
   {
     id: 2,
-    question: "¿Los tomos incluyen contenido exclusivo o extra?",
-    answer: "Sí, algunos tomos tienen ilustraciones inéditas, escenas extendidas y notas del autor.",
+    question: "¿La segunda temporada está disponible solo en formato digital?",
+    answer: "Sí, la segunda temporada de 'Operation True Love' está disponible exclusivamente en formato digital.",
   },
   {
     id: 3,
-    question: "¿Cada cuánto tiempo se lanzan nuevos tomos?",
-    answer: "Los lanzamientos varían, pero generalmente cada 6 meses se publica un nuevo tomo.",
+    question: "¿Puedo acceder a un adelanto de la segunda temporada antes de comprarla?",
+    answer: "Sí, puedes encontrar un adelanto gratuito en nuestra página oficial antes de realizar tu compra.",
   },
   {
     id: 4,
-    question: "¿Puedo leer un adelanto antes de comprarlo?",
-    answer: "Sí, puedes encontrar una vista previa gratuita en nuestra página oficial.",
+    question: "¿Habrá más temporadas o contenido adicional después de esta?",
+    answer: "Estamos considerando posibles continuaciones y contenido adicional, pero por el momento nos enfocamos en esta temporada.",
   },
   {
     id: 5,
-    question: "¿Es una historia autoconclusiva o tendrá continuaciones?",
-    answer: "Actualmente la historia principal está cerrada, pero hay planes para spin-offs y contenido adicional.",
+    question: "¿Puedo ver la segunda temporada en varios dispositivos?",
+    answer: "Sí, el contenido digital está disponible para ver en múltiples dispositivos compatibles.",
   },
 ];
+
 export default function LandingPage() {
   const [currentBook, setCurrentBook] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
