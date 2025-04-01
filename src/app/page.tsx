@@ -293,103 +293,117 @@ export default function LandingPage() {
   </div>
 </section>
 
+<section id="garantia" className="py-20 px-6 text-gray-800">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-bold text-[#F22987] mb-8">Garantía de Satisfacción</h2>
+    <div className="bg-transparent p-8">
+      <p className="text-lg text-gray-700 mb-6">
+        ¡Estamos completamente seguros de que te encantará nuestro libro digital! Si por cualquier razón no estás satisfecho con tu compra, ofrecemos una garantía de devolución de 30 días. 
+        Sin preguntas, sin complicaciones. Si no quedas feliz con tu compra, solo tienes que contactarnos y procesaremos la devolución de tu dinero.
+      </p>
+      <p className="text-lg text-gray-700">
+        Nuestro objetivo es brindarte la mejor experiencia de lectura. Si tienes alguna pregunta sobre el producto o la política de devolución, no dudes en contactarnos. 
+        ¡Tu satisfacción es nuestra prioridad!
+      </p>
+    </div>
+  </div>
+</section>
 
 
-
-
-
-        <section id="reviews" className="bg-gray-100 py-20 px-6 text-gray-800">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Reseñas de los Lectores</h2>
-            <p className="text-gray-600 mb-4">Mostrando las reseñas más relevantes</p>
-            
-            {/* Resumen de valoraciones */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-white p-6 rounded-lg shadow-md mb-8 text-left"
-            >
-              <h3 className="text-3xl font-bold text-gray-800">4.4</h3>
-              <p className="text-yellow-500 text-2xl">⭐⭐⭐⭐☆</p>
-              <p className="text-gray-600">Todo desde compras verificadas</p>
-              <div className="mt-4 space-y-2">
-                {[5, 4, 3, 2, 1].map((stars, index) => (
-                  <motion.div 
-                    key={index} 
-                    initial={{ opacity: 0, x: -50 }} 
-                    whileInView={{ opacity: 1, x: 0 }} 
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    className="flex items-center"
-                  >
-                    <span className="text-gray-800 w-20">{stars} Estrellas</span>
-                    <div className="flex-1 bg-gray-200 rounded-full h-2.5 ml-2">
-                      <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${stars * 20}%` }}></div>
-                    </div>
-                    <span className="text-gray-600 ml-2">{stars * 50}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {[{
-                name: "Mariana R.",
-                date: "24/1/2025",
-                rating: 5,
-                review: "¡Todo llegó en perfecto estado! Me encanta todo.",
-                image: "/imagenes/chica1.jpg",
-                itemType: "Vol. 3"
-              }, {
-                name: "Sofía G.",
-                date: "2/1/2025",
-                rating: 4,
-                review: "¡Estoy muy feliz con mi pedido! El manhwa llegó en perfectas condiciones.",
-                image: "/imagenes/chica3.jpg",
-                itemType: "Vol. 2"
-              }, {
-                name: "Carlos P.",
-                date: "7/12/2024",
-                rating: 5,
-                review: "Casi todo llegó en buen estado. ¡Se veía muy lindo! Realmente satisfecho.",
-                image: "/imagenes/chico2.jpg",
-                itemType: "Vol. 1"
-              }, {
-                name: "Andrea M.",
-                date: "15/2/2025",
-                rating: 5,
-                review: "El arte es increíble y la calidad del papel es excelente. ¡Definitivamente lo recomiendo!",
-                image: "/imagenes/chica4.jpg",
-                itemType: "Vol. 1"
-              }].map((review, index) => {
-                const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-                return (
-                  <motion.div
-                    key={index}
-                    ref={ref}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: index * 0.3 }}
-                    className="p-6 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col md:flex-row items-center"
-                  >
-                    <Image src={review.image} alt={review.name} width={120} height={120} className="rounded-lg mb-4 md:mb-0 md:mr-4" />
-                    <div>
-                      <p className="text-lg font-semibold text-gray-800">{review.name} <span className="text-sm text-gray-500">({review.date})</span></p>
-                      <p className="text-yellow-500">{'⭐️'.repeat(review.rating)}</p>
-                      <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                        <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${review.rating * 20}%` }}></div>
-                      </div>
-                      <p className="mt-2 text-gray-600">{review.review}</p>
-                      <p className="mt-1 text-sm text-gray-500">Tipo de artículo: {review.itemType}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+<section id="reviews" className="bg-[#FCE4EC] py-20 px-6 text-gray-800">
+  <div className="max-w-5xl mx-auto text-center">
+    <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Reseñas de los Lectores</h2>
+    <p className="text-gray-600 mb-4">Mostrando las reseñas más relevantes</p>
+    
+    {/* Resumen de valoraciones */}
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="bg-white p-6 rounded-lg shadow-md mb-8 text-left"
+    >
+      <h3 className="text-3xl font-bold text-gray-800">4.7</h3>
+      <p className="text-yellow-500 text-2xl">⭐⭐⭐⭐⭐</p>
+      <p className="text-gray-600">Basado en descargas verificadas</p>
+      <div className="mt-4 space-y-2">
+        {[5, 4, 3, 2, 1].map((stars, index) => (
+          <motion.div 
+            key={index} 
+            initial={{ opacity: 0, x: -50 }} 
+            whileInView={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="flex items-center"
+          >
+            <span className="text-gray-800 w-20">{stars} Estrellas</span>
+            <div className="flex-1 bg-gray-200 rounded-full h-2.5 ml-2">
+              <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${stars * 20}%` }}></div>
             </div>
-          </div>
-        </section>
+            <span className="text-gray-600 ml-2">{stars * 30}</span>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+
+    <div className="grid md:grid-cols-2 gap-6">
+      {[
+        {
+          name: "Mariana R.",
+          date: "24/1/2025",
+          rating: 5,
+          review: "La descarga fue súper rápida y el formato digital es excelente. ¡Muy recomendado!",
+          image: "/imagenes/chica1.jpg"
+        },
+        {
+          name: "Sofía G.",
+          date: "2/1/2025",
+          rating: 4,
+          review: "Buena calidad, lo ame!.",
+          image: "/imagenes/chica3.jpg"
+        },
+        {
+          name: "Carlos P.",
+          date: "7/12/2024",
+          rating: 5,
+          review: "Me encanta la historia y la presentación en digital. Fácil de leer y con una interfaz muy cómoda.",
+          image: "/imagenes/chico2.jpg"
+        },
+        {
+          name: "Andrea M.",
+          date: "15/2/2025",
+          rating: 5,
+          review: "Todo genial. La descarga fue instantánea y el manhwa se ve increíble en mi tablet.",
+          image: "/imagenes/chica4.jpg"
+        }
+      ].map((review, index) => {
+        const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+        return (
+          <motion.div
+            key={index}
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.3 }}
+            className="p-6 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col md:flex-row items-center"
+          >
+            <Image src={review.image} alt={review.name} width={120} height={120} className="rounded-lg mb-4 md:mb-0 md:mr-4" />
+            <div>
+              <p className="text-lg font-semibold text-gray-800">{review.name} <span className="text-sm text-gray-500">({review.date})</span></p>
+              <p className="text-yellow-500">{'⭐️'.repeat(review.rating)}</p>
+              <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${review.rating * 20}%` }}></div>
+              </div>
+              <p className="mt-2 text-gray-600">{review.review}</p>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+
         <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
   <div className="max-w-4xl mx-auto text-center">
     <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
