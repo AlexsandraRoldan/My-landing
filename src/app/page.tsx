@@ -256,71 +256,48 @@ export default function LandingPage() {
       </div>
     </section>
 
-      <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
-
-        {faqs.map((faq) => (
-          <div key={faq.id} className="mb-4">
-            <button
-              onClick={() => toggleFAQ(faq.id)}
-              className={`w-full flex justify-between items-center text-left text-lg font-semibold bg-white shadow-lg rounded-lg px-6 py-4 transition-all duration-300 border-2 ${
-                openIndex === faq.id ? "border-[#F22987]" : "border-transparent"
-              }`}
-            >
-              <span>{faq.question}</span>
-              {openIndex === faq.id ? (
-                <ChevronUp className="text-[#F22987] w-6 h-6" />
-              ) : (
-                <ChevronDown className="text-[#F22987] w-6 h-6" />
-              )}
-            </button>
-
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              {openIndex === faq.id && (
-                <div className="bg-white rounded-lg px-6 py-4 mt-2 shadow-inner text-gray-700">
-                  {faq.answer}
-                </div>
-              )}
-            </motion.div>
-          </div>
-        ))}
+    <section id="conoce-autores" className="py-20 px-6 relative text-white">
+  <div className="absolute inset-0 bg-cover bg-center bg-opacity-50" style={{ backgroundImage: "url('/imagenes/fondoo.gif')" }}></div>
+  <div className="relative z-10 max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl font-bold text-[#F22987] mb-12">Conoce a los Autores</h2>
+    
+    <div className="flex flex-col md:flex-row gap-12 justify-center">
+      {/* Información de Lee Na-Na */}
+      <div className="flex flex-col items-center bg-gradient-to-r from-[#fbc0d5] to-[#f8a2c4] p-8 rounded-2xl shadow-xl bg-opacity-90 w-full md:w-1/2 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:border-[#F22987] border-4 border-transparent hover:bg-gradient-to-l">
+        <h3 className="text-3xl font-semibold text-[#F22987] mb-4">Lee Na-Na</h3>
+        
+        <p className="text-lg text-gray-800 mb-4 text-center">
+          Lee Na-Na es una escritora surcoreana destacada en el género del manhwa romántico y dramático. Con un estilo único, ha creado historias profundas que exploran emociones complejas en las relaciones humanas.
+        </p>
+        <p className="text-lg text-gray-800 text-center">
+          Aclamada por su habilidad para transmitir la vulnerabilidad de los personajes, su obra más conocida, *Operation True Love*, ha ganado el corazón de miles de lectores.
+        </p>
       </div>
-    </section>
 
-      <section id="features" className="bg-gradient-to-r from-[#BF5065] to-[#F2EBEC] text-gray-800 py-20 px-6 relative overflow-hidden">
-          <div className="max-w-5xl mx-auto text-center relative">
-            <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Características del Libro</h2>
-            <div className="grid md:grid-cols-3 gap-10">
-              {["Historia Emocionante", "Ilustraciones de Alta Calidad", "Disponible en Digital y Físico"].map((feature, index) => {
-                const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-                return (
-                  <motion.div
-                    key={index}
-                    ref={ref}
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="flex flex-col items-center text-center p-8 bg-white/60 border border-[#F266C1] rounded-lg shadow-md backdrop-blur-lg"
-                  >
-                    <CheckCircle className="text-[#F22987] w-14 h-14 mb-4" />
-                    <h3 className="text-2xl font-semibold text-[#BF5065]">{feature}</h3>
-                    <p className="mt-3 text-gray-600">
-                      {index === 0 ? "Sumérgete en una historia llena de romance, drama y giros inesperados." :
-                       index === 1 ? "Disfruta de un arte impresionante con detalles vibrantes en cada página." :
-                       "Elige cómo quieres disfrutarlo: en versión digital o impresa."}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+      {/* Información de Han Seung-Ryung */}
+      <div className="flex flex-col items-center bg-gradient-to-r from-[#fbc0d5] to-[#f8a2c4] p-8 rounded-2xl shadow-xl bg-opacity-90 w-full md:w-1/2 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:border-[#F22987] border-4 border-transparent hover:bg-gradient-to-l">
+        <h3 className="text-3xl font-semibold text-[#F22987] mb-4">Han Seung-Ryung</h3>
+        
+        <p className="text-lg text-gray-800 mb-4 text-center">
+          Han Seung-Ryung es un ilustrador surcoreano conocido por su estilo detallado y su capacidad para capturar las emociones a través de sus dibujos. Su trabajo en *Operation True Love* ha sido clave para dar vida a los personajes y la atmósfera de la historia.
+        </p>
+        <p className="text-lg text-gray-800 text-center">
+          Con su estilo expresivo, ha logrado crear escenas que reflejan tanto momentos románticos como dramáticos, enriqueciendo la narrativa visualmente.
+        </p>
+      </div>
+    </div>
+
+    <p className="text-lg text-gray-800 mt-8 max-w-3xl mx-auto text-center">
+      Juntos, Lee Na-Na y Han Seung-Ryung han creado una obra que ha capturado la atención global, y su colaboración sigue siendo un referente en el mundo del manhwa.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
         <section id="reviews" className="bg-gray-100 py-20 px-6 text-gray-800">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Reseñas de los Lectores</h2>
@@ -413,6 +390,42 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+        <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
+
+    <div className="space-y-4">
+      {faqs.map((faq) => (
+        <div key={faq.id} className="bg-white rounded-lg shadow-lg">
+          <button
+            onClick={() => toggleFAQ(faq.id)}
+            className="w-full text-left flex justify-between items-center p-6 bg-[#F22987] text-white font-semibold rounded-lg"
+          >
+            <span>{faq.question}</span>
+            {openIndex === faq.id ? (
+              <ChevronUp className="w-6 h-6" />
+            ) : (
+              <ChevronDown className="w-6 h-6" />
+            )}
+          </button>
+
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            {openIndex === faq.id && (
+              <div className="p-6 text-gray-700 bg-[#f9f9f9] rounded-b-lg">
+                {faq.answer}
+              </div>
+            )}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
     </div>
   );
 }
