@@ -9,54 +9,6 @@ import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
-
-
-
-interface Book {
-  id: number;
-  image: string;
-  title: string;
-  details: string;
-}
-
-const books = [
-  
-  { 
-    id: 1, 
-    image: "/imagenes/tomo_1.png", 
-    title: "Operation True Love - Tomo 1", 
-    summary: "Sujeong, atrapada en una relación tóxica con su novio, descubre una aplicación misteriosa que podría cambiar su destino amoroso. Sin embargo, el precio a pagar podría ser más alto de lo que imagina.",
-    details: "Primer volumen del exitoso manhwa, incluye ilustraciones exclusivas.",
-    publication: "20 de septiembre, 2024",
-    specs: "320 páginas | 150×210×20mm",
-    isbn: "9788931477054"
-  },
-  { 
-    id: 2, 
-    image: "/imagenes/tomo_2.png", 
-    title: "Operation True Love - Tomo 2", 
-    summary: "Después de enfrentarse a la dura verdad sobre su relación, Sujeong empieza a cuestionar sus sentimientos. Mientras tanto, un nuevo personaje entra en su vida, desafiando todo lo que creía saber sobre el amor verdadero.",
-    details: "Segunda parte de la historia con más giros impactantes y arte mejorado.",
-    publication: "20 de septiembre, 2024",
-    specs: "320 páginas | 150×210×20mm",
-    isbn: "9788931477061"
-  },
-  { 
-    id: 3, 
-    image: "/imagenes/tomo_3.png", 
-    title: "Operation True Love - Tomo 3", 
-    summary: "Sujeong se encuentra en medio de un dilema emocional. Entre recuerdos dolorosos y nuevas oportunidades, debe decidir si seguirá el camino que el destino le impone o si tomará las riendas de su propia historia de amor.",
-    details: "Última entrega de la serie, con un desenlace emocionante y contenido extra.",
-    publication: "20 de septiembre, 2024",
-    specs: "320 páginas | 150×210×20mm",
-    isbn: "9788931477078"
-  }
-];
-const tomos = [
-  { id: 1, src: "/imagenes/tomo1_sin.png", alt: "Tomo 1" },
-  { id: 2, src: "/imagenes/tomo2_sin.png", alt: "Tomo 2" },
-  { id: 3, src: "/imagenes/tomo3_sin.png", alt: "Tomo 3" },
-];
 const faqs = [
   {
     id: 1,
@@ -100,35 +52,6 @@ export default function LandingPage() {
     setOpenIndex((prevIndex) => (prevIndex === id ? null : id));
   };
   
-  const nextBook = () => {
-    setIsPaused(true); // Pausa el carrusel
-    setCurrentBook((prev) => (prev + 1) % books.length);
-  
-    setTimeout(() => {
-      setIsPaused(false); // Lo reanuda después de 5 segundos
-    }, 5000);
-  };
-  
-  const prevBook = () => {
-    setIsPaused(true); // Pausa el carrusel
-    setCurrentBook((prev) => (prev - 1 + books.length) % books.length);
-  
-    setTimeout(() => {
-      setIsPaused(false); // Lo reanuda después de 5 segundos
-    }, 5000);
-  };
-  useEffect(() => {
-    setVisible(true);
-    if (isPaused) return;
-  
-    const interval = setInterval(() => {
-      setCurrentBook((prev) => (prev + 1) % books.length);
-    }, 7000); // Espera 7 segundos antes de cambiar
-  
-    return () => clearInterval(interval);
-  }, [currentBook, isPaused]);
-  
-
   return (
 <div>
   <div className="relative min-h-screen flex flex-col">
@@ -440,6 +363,9 @@ export default function LandingPage() {
     </div>
   </div>
 </section>
+
     </div>
+    
   );
+  
 }
