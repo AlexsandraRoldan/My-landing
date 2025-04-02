@@ -131,54 +131,95 @@ export default function LandingPage() {
 
       
   <section className="py-16 bg-white text-center" id="details">
-      <h2 className="text-3xl font-semibold mb-8">Características de la Temporada 2</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
-        {/* Característica 1 */}
-        <div className="p-6 border rounded-lg shadow-md bg-gray-50">
-          <img
-            src="/imagenes/imagen1.jpeg"
-            alt="Ilustración exclusiva"
-            className="w-full h-60 object-cover rounded-md mb-4"
-          />
-          <h3 className="text-lg font-semibold">Contenido Exclusivo</h3>
-          <p className="text-gray-600">
-            Capítulos exclusivos solo disponibles para los primeros compradores de la temporada 2.
-          </p>
-        </div>
+  <h2 className="text-3xl font-semibold mb-8">Características de la Temporada 2</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+    {/* Característica 1 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen1.jpeg"
+        alt="Ilustración exclusiva"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Contenido Exclusivo</h3>
+      <p className="text-gray-600">
+        Capítulos exclusivos solo disponibles para los primeros compradores de la temporada 2.
+      </p>
+    </div>
 
-        {/* Característica 2 */}
-        <div className="p-6 border rounded-lg shadow-md bg-gray-50">
-          <img
-            src="/imagenes/imagen2.jpg"
-            alt="Ilustración inédita"
-            className="w-full h-60 object-cover rounded-md mb-4"
-          />
-          <h3 className="text-lg font-semibold">Ilustraciones Inéditas</h3>
-          <p className="text-gray-600">
-            Disfruta de ilustraciones originales y nunca antes vistas que complementan la historia.
-          </p>
-        </div>
+    {/* Característica 2 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen2.jpg"
+        alt="Ilustración inédita"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Ilustraciones Inéditas</h3>
+      <p className="text-gray-600">
+        Disfruta de ilustraciones originales y nunca antes vistas que complementan la historia.
+      </p>
+    </div>
 
-        {/* Característica 3 */}
-        <div className="p-6 border rounded-lg shadow-md bg-gray-50">
-          <img
-            src="/imagenes/imagen3.jpg"
-            alt="Acceso anticipado"
-            className="w-full h-60 object-cover rounded-md mb-4"
-          />
-          <h3 className="text-lg font-semibold">Acceso Anticipado</h3>
-          <p className="text-gray-600">
-            Obtén acceso anticipado a la temporada completa antes de que se publique oficialmente.
-          </p>
-        </div>
-      </div>
+    {/* Característica 3 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen3.jpg"
+        alt="Acceso anticipado"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Acceso Anticipado</h3>
+      <p className="text-gray-600">
+        Obtén acceso anticipado a la temporada completa antes de que se publique oficialmente.
+      </p>
+    </div>
 
-      <div className="mt-8">
-        <p className="text-lg font-semibold">
-          ¡No te pierdas esta increíble temporada! Obtén la temporada 2 ahora y sé parte de la historia.
-        </p>
-      </div>
-    </section>
+    {/* Característica 4 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen4.jpg"
+        alt="Edición digital"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Edición Digital</h3>
+      <p className="text-gray-600">
+        Disfruta de la temporada 2 en formato digital para que la puedas leer en cualquier lugar.
+      </p>
+    </div>
+
+    {/* Característica 5 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen5.jpg"
+        alt="Material complementario"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Material Complementario</h3>
+      <p className="text-gray-600">
+        Accede a material exclusivo, como arte conceptual y entrevistas con los creadores.
+      </p>
+    </div>
+
+    {/* Característica 6 */}
+    <div className="p-6 border rounded-lg shadow-md bg-gray-50">
+      <img
+        src="/imagenes/imagen6.jpg"
+        alt="Optimización para dispositivos"
+        className="w-full h-60 object-cover rounded-md mb-4"
+      />
+      <h3 className="text-lg font-semibold">Optimización para Dispositivos</h3>
+      <p className="text-gray-600">
+        La temporada 2 está optimizada para que la disfrutes en cualquier dispositivo, desde móvil hasta PC.
+      </p>
+    </div>
+  </div>
+
+  <div className="mt-8">
+    <p className="text-lg font-semibold">
+      ¡No te pierdas esta increíble temporada! Obtén la temporada 2 ahora y sé parte de la historia.
+    </p>
+  </div>
+</section>
+
+
 
     <section id="conoce-autores" className="py-20 px-6 relative text-white">
   <div className="absolute inset-0 bg-cover bg-center bg-opacity-50" style={{ backgroundImage: "url('/imagenes/fondoo.gif')" }}></div>
@@ -217,156 +258,212 @@ export default function LandingPage() {
   </div>
 </section>
 
-<section id="garantia" className="py-20 px-6 text-gray-800">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-4xl font-bold text-[#F22987] mb-8">Garantía de Satisfacción</h2>
-    <div className="bg-transparent p-8">
-      <p className="text-lg text-gray-700 mb-6">
-        ¡Estamos completamente seguros de que te encantará nuestro libro digital! Si por cualquier razón no estás satisfecho con tu compra, ofrecemos una garantía de devolución de 30 días. 
-        Sin preguntas, sin complicaciones. Si no quedas feliz con tu compra, solo tienes que contactarnos y procesaremos la devolución de tu dinero.
-      </p>
-      <p className="text-lg text-gray-700">
-        Nuestro objetivo es brindarte la mejor experiencia de lectura. Si tienes alguna pregunta sobre el producto o la política de devolución, no dudes en contactarnos. 
-        ¡Tu satisfacción es nuestra prioridad!
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section id="reviews" className="bg-[#FCE4EC] py-20 px-6 text-gray-800">
-  <div className="max-w-5xl mx-auto text-center">
-    <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Reseñas de los Lectores</h2>
-    <p className="text-gray-600 mb-4">Mostrando las reseñas más relevantes</p>
-    
-    {/* Resumen de valoraciones */}
-    <motion.div 
-      initial={{ opacity: 0, y: 50 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="bg-white p-6 rounded-lg shadow-md mb-8 text-left"
-    >
-      <h3 className="text-3xl font-bold text-gray-800">4.7</h3>
-      <p className="text-yellow-500 text-2xl">⭐⭐⭐⭐⭐</p>
-      <p className="text-gray-600">Basado en descargas verificadas</p>
-      <div className="mt-4 space-y-2">
-        {[5, 4, 3, 2, 1].map((stars, index) => (
-          <motion.div 
-            key={index} 
-            initial={{ opacity: 0, x: -50 }} 
-            whileInView={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            className="flex items-center"
-          >
-            <span className="text-gray-800 w-20">{stars} Estrellas</span>
-            <div className="flex-1 bg-gray-200 rounded-full h-2.5 ml-2">
-              <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${stars * 20}%` }}></div>
-            </div>
-            <span className="text-gray-600 ml-2">{stars * 30}</span>
-          </motion.div>
-        ))}
-      </div>
-    </motion.div>
-
-    <div className="grid md:grid-cols-2 gap-6">
-      {[
-        {
-          name: "Mariana R.",
-          date: "24/1/2025",
-          rating: 5,
-          review: "La descarga fue súper rápida y el formato digital es excelente. ¡Muy recomendado!",
-          image: "/imagenes/chica1.jpg"
-        },
-        {
-          name: "Sofía G.",
-          date: "2/1/2025",
-          rating: 4,
-          review: "Buena calidad, lo ame!.",
-          image: "/imagenes/chica3.jpg"
-        },
-        {
-          name: "Carlos P.",
-          date: "7/12/2024",
-          rating: 5,
-          review: "Me encanta la historia y la presentación en digital. Fácil de leer y con una interfaz muy cómoda.",
-          image: "/imagenes/chico2.jpg"
-        },
-        {
-          name: "Andrea M.",
-          date: "15/2/2025",
-          rating: 5,
-          review: "Todo genial. La descarga fue instantánea y el manhwa se ve increíble en mi tablet.",
-          image: "/imagenes/chica4.jpg"
-        }
-      ].map((review, index) => {
-        const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
-        return (
-          <motion.div
-            key={index}
-            ref={ref}
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.3 }}
-            className="p-6 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col md:flex-row items-center"
-          >
-            <Image src={review.image} alt={review.name} width={120} height={120} className="rounded-lg mb-4 md:mb-0 md:mr-4" />
-            <div>
-              <p className="text-lg font-semibold text-gray-800">{review.name} <span className="text-sm text-gray-500">({review.date})</span></p>
-              <p className="text-yellow-500">{'⭐️'.repeat(review.rating)}</p>
-              <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-                <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${review.rating * 20}%` }}></div>
-              </div>
-              <p className="mt-2 text-gray-600">{review.review}</p>
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-  </div>
-</section>
-
-
-        <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
-
-    <div className="space-y-4">
-      {faqs.map((faq) => (
-        <div key={faq.id} className="bg-white rounded-lg shadow-lg">
-          <button
-            onClick={() => toggleFAQ(faq.id)}
-            className="w-full text-left flex justify-between items-center p-6 bg-[#F22987] text-white font-semibold rounded-lg"
-          >
-            <span>{faq.question}</span>
-            {openIndex === faq.id ? (
-              <ChevronUp className="w-6 h-6" />
-            ) : (
-              <ChevronDown className="w-6 h-6" />
-            )}
-          </button>
-
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            {openIndex === faq.id && (
-              <div className="p-6 text-gray-700 bg-[#f9f9f9] rounded-b-lg">
-                {faq.answer}
-              </div>
-            )}
-          </motion.div>
+      <section id="garantia" className="py-20 px-6 text-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-[#F22987] mb-8">Garantía de Satisfacción</h2>
+          <div className="bg-transparent p-8">
+            <p className="text-lg text-gray-700 mb-6">
+              ¡Estamos completamente seguros de que te encantará nuestro libro digital! Si por cualquier razón no estás satisfecho con tu compra, ofrecemos una garantía de devolución de 30 días. 
+              Sin preguntas, sin complicaciones. Si no quedas feliz con tu compra, solo tienes que contactarnos y procesaremos la devolución de tu dinero.
+            </p>
+            <p className="text-lg text-gray-700">
+             Nuestro objetivo es brindarte la mejor experiencia de lectura. Si tienes alguna pregunta sobre el producto o la política de devolución, no dudes en contactarnos. 
+              ¡Tu satisfacción es nuestra prioridad!
+            </p>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-    </div>
+
+      <section id="reviews" className="bg-[#FCE4EC] py-20 px-6 text-gray-800">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-12 text-[#F22987]">Reseñas de los Lectores</h2>
+          <p className="text-gray-600 mb-4">Mostrando las reseñas más relevantes</p>
     
+          {/* Resumen de valoraciones */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white p-6 rounded-lg shadow-md mb-8 text-left"
+          >
+            <h3 className="text-3xl font-bold text-gray-800">4.7</h3>
+            <p className="text-yellow-500 text-2xl">⭐⭐⭐⭐⭐</p>
+            <p className="text-gray-600">Basado en descargas verificadas</p>
+            <div className="mt-4 space-y-2">
+              {[5, 4, 3, 2, 1].map((stars, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, x: -50 }} 
+                  whileInView={{ opacity: 1, x: 0 }} 
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="flex items-center"
+                >
+                  <span className="text-gray-800 w-20">{stars} Estrellas</span>
+                  <div className="flex-1 bg-gray-200 rounded-full h-2.5 ml-2">
+                    <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${stars * 20}%` }}></div>
+                  </div>
+                  <span className="text-gray-600 ml-2">{stars * 30}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Mariana R.",
+                date: "24/1/2025",
+                rating: 5,
+                review: "La descarga fue súper rápida y el formato digital es excelente. ¡Muy recomendado!",
+                image: "/imagenes/chica1.jpg"
+              },
+              {
+                name: "Sofía G.",
+                date: "2/1/2025",
+                rating: 4,
+                review: "Buena calidad, lo ame!.",
+                image: "/imagenes/chica3.jpg"
+              },
+              {
+                name: "Carlos P.",
+                date: "7/12/2024",
+                rating: 5,
+                review: "Me encanta la historia y la presentación en digital. Fácil de leer y con una interfaz muy cómoda.",
+                image: "/imagenes/chico2.jpg"
+              },
+              {
+                name: "Andrea M.",
+                date: "15/2/2025",
+                rating: 5,
+                review: "Todo genial. La descarga fue instantánea y el manhwa se ve increíble en mi tablet.",
+                image: "/imagenes/chica4.jpg"
+              }
+            ].map((review, index) => {
+              const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+              return (
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.3 }}
+                  className="p-6 bg-white border border-gray-300 rounded-lg shadow-md flex flex-col md:flex-row items-center"
+                >
+                  <Image src={review.image} alt={review.name} width={120} height={120} className="rounded-lg mb-4 md:mb-0 md:mr-4" />
+                  <div>
+                    <p className="text-lg font-semibold text-gray-800">{review.name} <span className="text-sm text-gray-500">({review.date})</span></p>
+                    <p className="text-yellow-500">{'⭐️'.repeat(review.rating)}</p>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                      <div className="bg-yellow-400 h-2.5 rounded-full" style={{ width: `${review.rating * 20}%` }}></div>
+                    </div>
+                    <p className="mt-2 text-gray-600">{review.review}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
+
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <div key={faq.id} className="bg-white rounded-lg shadow-lg">
+                <button
+                  onClick={() => toggleFAQ(faq.id)}
+                  className="w-full text-left flex justify-between items-center p-6 bg-[#F22987] text-white font-semibold rounded-lg"
+                >
+                  <span>{faq.question}</span>
+                  {openIndex === faq.id ? (
+                    <ChevronUp className="w-6 h-6" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6" />
+                  )}
+                </button>
+
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  {openIndex === faq.id && (
+                    <div className="p-6 text-gray-700 bg-[#f9f9f9] rounded-b-lg">
+                      {faq.answer}
+                    </div>
+                  )}
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <footer className="bg-gray-900 text-white py-12 mt-12">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          {/* Sección de enlaces principales */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Enlaces principales</h3>
+            <ul>
+              <li><a href="#" className="text-gray-400 hover:text-white">Inicio</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">Comprar ahora</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">Términos y condiciones</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">Política de privacidad</a></li>
+            </ul>
+          </div>
+
+          {/* Sección de redes sociales */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Síguenos</h3>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-facebook-f"></i> {/* Icono de Facebook */}
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-twitter"></i> {/* Icono de Twitter */}
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <i className="fab fa-instagram"></i> {/* Icono de Instagram */}
+              </a>
+            </div>
+          </div>
+
+          {/* Sección de contacto */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Contacto</h3>
+            <p className="text-gray-400">Correo: contacto@operationtruelove.com</p>
+            <p className="text-gray-400">Teléfono: +123 456 7890</p>
+          </div>
+
+          {/* Sección de suscripción */}
+          <div>
+            <h3 className="text-lg font-bold mb-4">Suscríbete</h3>
+            <p className="text-gray-400 mb-4">Recibe las últimas noticias y actualizaciones.</p>
+            <input 
+              type="email" 
+              placeholder="Tu correo electrónico" 
+              className="bg-gray-800 text-white py-2 px-4 mb-4 w-full border border-gray-600 rounded-md"
+            />
+            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md w-full">
+              Suscribirse
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <div className="text-center py-4 border-t border-gray-600 mt-8">
+        <p className="text-sm text-gray-400">
+          © {new Date().getFullYear()} *Operation True Love* | Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    </div>
   );
-  
 }
