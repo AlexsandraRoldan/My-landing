@@ -368,42 +368,44 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="faq" className="py-20 px-6 bg-gradient-to-b from-[#f8c8dc] to-[#f6a5c0] text-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
+      <section id="faq" className="py-20 px-6 bg-white text-gray-800">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-4xl font-bold text-[#F22987] mb-12">Preguntas Frecuentes</h2>
 
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.id} className="bg-white rounded-lg shadow-lg">
-                <button
-                  onClick={() => toggleFAQ(faq.id)}
-                  className="w-full text-left flex justify-between items-center p-6 bg-[#F22987] text-white font-semibold rounded-lg"
-                >
-                  <span>{faq.question}</span>
-                  {openIndex === faq.id ? (
-                    <ChevronUp className="w-6 h-6" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6" />
-                  )}
-                </button>
+    <div className="space-y-4">
+      {faqs.map((faq) => (
+        <div key={faq.id} className="bg-white rounded-lg shadow-lg">
+          <button
+            onClick={() => toggleFAQ(faq.id)}
+            className="w-full text-left flex justify-between items-center p-6 bg-[#f28bb3] text-white font-semibold rounded-lg"
+          >
+            <span>{faq.question}</span>
+            {openIndex === faq.id ? (
+              <ChevronUp className="w-6 h-6" />
+            ) : (
+              <ChevronDown className="w-6 h-6" />
+            )}
+          </button>
 
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  {openIndex === faq.id && (
-                    <div className="p-6 text-gray-700 bg-[#f9f9f9] rounded-b-lg">
-                      {faq.answer}
-                    </div>
-                  )}
-                </motion.div>
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={openIndex === faq.id ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            {openIndex === faq.id && (
+              <div className="p-6 text-gray-700 bg-[#f9f9f9] rounded-b-lg">
+                {faq.answer}
               </div>
-            ))}
-          </div>
+            )}
+          </motion.div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
       <footer className="bg-gray-900 text-white py-12 mt-12">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
