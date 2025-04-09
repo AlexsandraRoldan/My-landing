@@ -8,6 +8,7 @@ import { ShoppingCart, Info, CheckCircle } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import PaymentModal from "@/components/ui/modal"; // Asegúrate de que el archivo esté en la ruta correcta.
 
 const faqs = [
   {
@@ -36,6 +37,7 @@ const faqs = [
     answer: "Sí, el contenido digital está disponible para ver en múltiples dispositivos compatibles.",
   },
 ];
+<script src="https://www.paypal.com/sdk/js?client-id=Acybs4rYD_3aWC989hf1IHFXNW6BOaW46PpFMoE3FGYXx38iBn4VuvJxjwLmnSLWRIMBkxcFZ8Pc9zf_&components=buttons"></script>
 
 export default function LandingPage() {
   const [currentBook, setCurrentBook] = useState(0);
@@ -47,13 +49,23 @@ export default function LandingPage() {
     triggerOnce: true,
     threshold: 0.2,
   });
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggleFAQ = (id: number) => {
     setOpenIndex((prevIndex) => (prevIndex === id ? null : id));
   };
   
   return (
+    
 <div>
   <div className="relative min-h-screen flex flex-col">
     {/* Fondo con blur */}
@@ -69,48 +81,51 @@ export default function LandingPage() {
 
     {/* Navbar */}
     <nav className="relative z-10 flex justify-between items-center p-6 max-w-6xl mx-auto text-white">
-      <h2 className="text-2xl font-bold">Operación Verdadero Amor - Temporada 2</h2>
-      <div className="space-x-6">
-        <a href="#books" className="hover:text-yellow-400">Detalles</a>
-        <a href="#features" className="hover:text-yellow-400">Características</a>
-        <a href="#reviews" className="hover:text-yellow-400">Reseñas</a>
-        <a href="#buy" className="hover:text-yellow-400">Comprar</a>
-      </div>
+    <h2 className="text-2xl font-bold ml-[-1px]">Operación Verdadero Amor - Temporada 2</h2>
     </nav>
 
-    {/* Contenido principal */}
-    <div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen max-w-6xl mx-auto p-6 text-white">
-      {/* Sección de texto */}
-      <div className="md:w-1/2 text-center md:text-left md:pr-10">
-        <h1 className="text-5xl font-bold leading-tight">Operación Verdadero Amor - Segunda Temporada</h1>
-        <h2 className="mt-2 text-2xl text-pink-300 font-semibold">Una historia llena de nuevas emociones</h2>
-        <p className="mt-4 text-lg">
-          La segunda temporada de este emocionante manhwa ya está disponible. Sumérgete en una historia de amor, secretos y decisiones difíciles.
-        </p>
-        <ul className="mt-4 space-y-2 text-lg">
-          <li className="flex items-center gap-2">
-            <CheckCircle className="text-yellow-300 w-6 h-6" /> Ilustraciones mejoradas y vibrantes.
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle className="text-yellow-300 w-6 h-6" /> Más giros inesperados y desarrollo de personajes.
-          </li>
-          <li className="flex items-center gap-2">
-            <CheckCircle className="text-yellow-300 w-6 h-6" /> Disponible en formato digital.
-          </li>
-        </ul>
-        <p className="mt-6 italic text-gray-200">⭐⭐⭐⭐⭐ “Una historia aún más intensa y atrapante.”</p>
-        <div className="mt-6 flex gap-4">
-          <Button className="bg-yellow-400 text-black text-lg py-3 px-6 rounded-lg flex items-center gap-2">
-            <ShoppingCart className="w-5 h-5" /> Comprar ahora
-          </Button>
-          <Button className="border border-white text-white text-lg py-3 px-6 rounded-lg flex items-center gap-2">
-            <Info className="w-5 h-5" /> Más información
-          </Button>
-        </div>
-      </div>
+{/* Contenido principal */}
+<div className="relative z-10 flex flex-col md:flex-row items-center justify-center min-h-screen max-w-6xl mx-auto p-6 text-white">
+  {/* Sección de texto */}
+  <div className="md:w-1/2 text-center md:text-left md:pr-10">
+    <h1 className="text-5xl font-bold leading-tight">Operación Verdadero Amor - Segunda Temporada</h1>
+    <h2 className="mt-2 text-2xl text-pink-300 font-semibold">Una historia llena de nuevas emociones</h2>
+    <p className="mt-4 text-lg">
+      La segunda temporada de este emocionante manhwa ya está disponible. Sumérgete en una historia de amor, secretos y decisiones difíciles.
+    </p>
+    <ul className="mt-4 space-y-2 text-lg">
+      <li className="flex items-center gap-2">
+        <CheckCircle className="text-yellow-300 w-6 h-6" /> Ilustraciones mejoradas y vibrantes.
+      </li>
+      <li className="flex items-center gap-2">
+        <CheckCircle className="text-yellow-300 w-6 h-6" /> Más giros inesperados y desarrollo de personajes.
+      </li>
+      <li className="flex items-center gap-2">
+        <CheckCircle className="text-yellow-300 w-6 h-6" /> Disponible en formato digital.
+      </li>
+    </ul>
+    <p className="mt-6 italic text-gray-200">⭐⭐⭐⭐⭐ “Una historia aún más intensa y atrapante.”</p>
+    
+    {/* Precio de la temporada */}
+    <p className="mt-6 text-3xl font-semibold text-yellow-300">S/ 80.00</p>
+
+    <div className="mt-6 flex gap-4">
+      <Button onClick={openModal} className="bg-yellow-400 text-black py-3 px-6 rounded-lg">
+        Comprar Ahora
+      </Button>
+
+      <Button className="border border-white text-white text-lg py-3 px-6 rounded-lg flex items-center gap-2">
+        <Info className="w-5 h-5" /> Más información
+      </Button>
+    </div>
+  {/* Modal de pago */}
+  <PaymentModal isOpen={isModalOpen} onClose={closeModal} />
+</div>
+
+
       
       {/* Sección de ilustraciones */}
-      <div className="relative h-[700px] w-[400px] mt-10 md:mt-0 flex items-center justify-center md:ml-50">
+      <div className="relative h-[700px] w-[400px] mt-90 md:mt-0 flex items-center justify-center md:ml-50">
         <motion.div 
           initial={{ opacity: 0, y: 50 }} 
           animate={{ opacity: 1, y: 0 }} 
@@ -127,9 +142,6 @@ export default function LandingPage() {
     </div>
   </div>
 
-
-
-      
   <section className="py-16 bg-white text-center" id="details">
   <h2 className="text-3xl font-semibold mb-8">Características de la Temporada 2</h2>
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
@@ -175,7 +187,7 @@ export default function LandingPage() {
     {/* Característica 4 */}
     <div className="p-6 border rounded-lg shadow-md bg-gray-50">
       <img
-        src="/imagenes/imagen4.jpg"
+        src="/imagenes/imagen2.jpeg"
         alt="Edición digital"
         className="w-full h-60 object-cover rounded-md mb-4"
       />
@@ -188,7 +200,7 @@ export default function LandingPage() {
     {/* Característica 5 */}
     <div className="p-6 border rounded-lg shadow-md bg-gray-50">
       <img
-        src="/imagenes/imagen5.jpg"
+        src="/imagenes/imagen4.jpeg"
         alt="Material complementario"
         className="w-full h-60 object-cover rounded-md mb-4"
       />
@@ -201,7 +213,7 @@ export default function LandingPage() {
     {/* Característica 6 */}
     <div className="p-6 border rounded-lg shadow-md bg-gray-50">
       <img
-        src="/imagenes/imagen6.jpg"
+        src="/imagenes/portada.jpg"
         alt="Optimización para dispositivos"
         className="w-full h-60 object-cover rounded-md mb-4"
       />
@@ -441,7 +453,7 @@ export default function LandingPage() {
           <div>
             <h3 className="text-lg font-bold mb-4">Contacto</h3>
             <p className="text-gray-400">Correo: contacto@operationtruelove.com</p>
-            <p className="text-gray-400">Teléfono: +123 456 7890</p>
+            <p className="text-gray-400">Teléfono: +51 964 157 256</p>
           </div>
 
           {/* Sección de suscripción */}
